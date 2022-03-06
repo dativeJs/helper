@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  *::-webkit-scrollbar {
+    @apply w-[8px] h-[8px];
+  }
+  /* rounded-[100vh] */
+  *::-webkit-scrollbar-track {
+    @apply dark:bg-base-300;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply bg-info rounded-[100vh] border-[1px] border-[#f6f7ed];
+  }
+  @font-face {
+    font-family: "poppins-medium";
+    src: url("/public/fonts/Poppins-Medium.ttf");
+  }
+  @font-face {
+    font-family: "poppins-semibold";
+    src: url("/public/fonts/Poppins-SemiBold.ttf");
+  }
+  @font-face {
+    font-family: "poppins-regular";
+    src: url("/public/fonts/Poppins-Regular.ttf");
+  }
+  @font-face {
+    font-family: "poppins-light";
+    src: url("/public/fonts/Poppins-Light.ttf");
+  }
+  @font-face {
+    font-family: "source-code";
+    src: url("/public/fonts/Source_Code_Pro.ttf");
+  }
+}
+
+html {
+  --prism-foreground: #eee;
+  --prism-background: #021e4a;
+  --prism-class: #e879f9;
+  --prism-builtin: #e879f9;
+  --prism-function: #e879f9;
+  --prism-keyword: #22d3ee;
+  --prism-string: #bef264;
+  --prism-number: #bef264;
+  --prism-selector: #bef264;
+  --prism-boolean: #bef264;
+  --prism-property: #e0f2fe;
+  --prism-punctuation: #e0f2fe;
+  --prism-comment: #a0ada0;
+  --prism-literal: #2f8a89;
+  --prism-constant: #e879f9;
+  --prism-namespace: #e879f9;
+  --prism-decorator: #e879f9;
+  --prism-regex: #bef264;
+  --prism-json-property: #22d3ee;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: var(--prism-foreground);
+  background: none;
+  font-family: "source-code";
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  /* border-radius: 0.3em; */
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  @apply bg-neutral;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  /* border-radius: 0.3em; */
+  white-space: normal;
+}
+
+.token.tag,
+.token.class-name,
+.token.selector,
+.token.selector .class,
+.token.selector.class,
+.token.function {
+  @apply text-pink-400;
+}
+
+.token.attr-name,
+.token.keyword,
+.token.rule,
+.token.pseudo-class,
+.token.important {
+  @apply text-slate-300;
+}
+
+.token.attr-value,
+.token.class,
+.token.string {
+  @apply text-sky-300;
+}
+
+.token.punctuation,
+.token.attr-equals {
+  @apply text-slate-500;
+}
+
+.token.attr-value * {
+  @apply text-sky-300;
+}
+
+.token.attr-value .attr-equals,
+.token.attr-value .attr-equals + .punctuation,
+.token.attr-value > .punctuation:last-child {
+  @apply text-slate-500;
+}
+
+.token.property {
+  @apply text-sky-300;
+}
+
+.token.unit {
+  @apply text-teal-200;
+}
+
+.language-shell .token:not(.comment),
+.token.atapply .token:not(.rule):not(.important):not(.punctuation) {
+  color: inherit;
+}
+
+.language-css .token.function {
+  @apply text-teal-200;
+}
+
+.token.comment,
+.token.module,
+.token.operator,
+.token.combinator {
+  @apply text-slate-400;
+}
+
+.token.unchanged {
+  @apply block;
+}
+
+.token.deleted,
+.token.inserted {
+  @apply block relative -mx-9 pl-8 pr-5 border-l-4 before:absolute before:top-0 before:left-4;
+}
+
+.token.inserted {
+  @apply bg-teal-400/[0.15] border-teal-400 before:content-['+'] before:text-teal-400;
+}
+
+.token.deleted {
+  @apply bg-rose-500/[0.15] border-rose-400 before:content-['-'] before:text-rose-400;
+}
+
+pre[class^='language-diff-'] {
+  @apply flex px-9;
+}
+
+pre[class^='language-diff-'] > code {
+  @apply flex-none min-w-full;
+}
+
+pre[class^="language-diff-"] {
+  display: flex;
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
+
+pre[class^="language-diff-"] > code {
+  flex: none;
+  min-width: 100%;
+}
